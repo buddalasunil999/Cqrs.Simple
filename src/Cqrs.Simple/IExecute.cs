@@ -10,5 +10,7 @@ namespace Cqrs.Simple
             where TArguments : ICommand;
         TResult Query<TArguments, TResult>(TArguments arguments)
             where TArguments : IQuery;
+        Task<TResult> QueryAsync<TArguments, TResult>(TArguments arguments)
+            where TArguments : IQuery;
     }
 }
