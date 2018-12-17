@@ -1,4 +1,7 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
@@ -6,19 +9,47 @@ namespace Cqrs.Simple.Installers
 {
     public class CqrsInstaller : IWindsorInstaller
     {
+        private readonly Assembly[] assemblies;
+
+        public CqrsInstaller(params Assembly[] assemblies)
+        {
+            this.assemblies = assemblies;
+        }
+
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(
-                Component.For<ICommandHandlerFactory>()
-                    .ImplementedBy<CommandHandlerFactory>()
-                    .LifestyleSingleton(),
-                Component.For<IQueryHandlerFactory>()
-                    .ImplementedBy<QueryHandlerFactory>()
-                    .LifestyleSingleton(),
-                Component.For<IExecute>()
-                    .ImplementedBy<Execute>()
-                    .LifestyleSingleton()
-            );
+            foreach (var assembly in assemblies)
+            {
+                container.Register(GetRegistrations(Classes.FromAssembly(assembly)).ToArray());
+            }
+        }
+
+        private static IEnumerable<IRegistration> GetRegistrations(FromAssemblyDescriptor fromAssembly)
+        {
+            yield return fromAssembly
+                .BasedOn(typeof(IHandleQuery<,>))
+                .WithServiceBase()
+                .LifestyleTransient();
+
+            yield return fromAssembly
+                .BasedOn(typeof(IHandleQueryAsync<,>))
+                .WithServiceBase()
+                .LifestyleTransient();
+
+            yield return fromAssembly
+                .BasedOn(typeof(IHandleCommand<>))
+                .WithServiceBase()
+                .LifestyleTransient();
+
+            yield return fromAssembly
+                .BasedOn(typeof(IHandleCommand<,>))
+                .WithServiceBase()
+                .LifestyleTransient();
+
+            yield return fromAssembly
+                .BasedOn<ISession>()
+                .WithServiceSelf()
+                .LifestyleTransient();
         }
     }
 }
