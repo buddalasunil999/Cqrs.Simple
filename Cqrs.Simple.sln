@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cqrs.Simple", "src\Cqrs.Simple\Cqrs.Simple.csproj", "{4D26BAB0-ECA4-468F-9A02-573B2A01A5C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cqrs.Simple.Tests", "Cqrs.Simple.Tests\Cqrs.Simple.Tests.csproj", "{CAAB03BC-A3F4-40F7-8293-F63F623D0A59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cqrs.Simple.Tests", "Cqrs.Simple.Tests\Cqrs.Simple.Tests.csproj", "{CAAB03BC-A3F4-40F7-8293-F63F623D0A59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cqrs.Simple.Castle", "Cqrs.Simple.Castle\Cqrs.Simple.Castle.csproj", "{D93727A1-C1CB-4D3B-93D8-D6254D77D6A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CAAB03BC-A3F4-40F7-8293-F63F623D0A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAAB03BC-A3F4-40F7-8293-F63F623D0A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAAB03BC-A3F4-40F7-8293-F63F623D0A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93727A1-C1CB-4D3B-93D8-D6254D77D6A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93727A1-C1CB-4D3B-93D8-D6254D77D6A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93727A1-C1CB-4D3B-93D8-D6254D77D6A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93727A1-C1CB-4D3B-93D8-D6254D77D6A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,9 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Cqrs.Simple.Castle.Factories;
 
-namespace Cqrs.Simple.Installers
+namespace Cqrs.Simple.Castle.Installers
 {
     public class CoreInstaller : IWindsorInstaller
     {

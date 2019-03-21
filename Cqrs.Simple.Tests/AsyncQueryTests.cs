@@ -1,8 +1,6 @@
-using System;
 using System.Threading.Tasks;
-using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using Cqrs.Simple.Installers;
+using Cqrs.Simple.Castle.Installers;
 using Xunit;
 
 namespace Cqrs.Simple.Tests
