@@ -1,6 +1,6 @@
 ﻿using Castle.MicroKernel;
 
-namespace Cqrs.Simple
+namespace Cqrs.Simple.Castle.Factories
 {
     public class AsyncQueryHandlerFactory : IAsyncQueryHandlerFactory
     {

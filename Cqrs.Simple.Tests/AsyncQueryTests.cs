@@ -1,8 +1,11 @@
 using System;
+using System.Data;
 using System.Threading.Tasks;
-using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using Cqrs.Simple.Installers;
+using Cqrs.Simple.Castle.Installers;
+using Cqrs.Simple.MicrosoftDI;
+using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using Xunit;
 
 namespace Cqrs.Simple.Tests
@@ -22,6 +25,13 @@ namespace Cqrs.Simple.Tests
 
             Assert.True(result);
         }
+
+        [Fact]
+        public void TestAddCqrs()
+        {
+            var serviceCollection = new Mock<IServiceCollection>();
+            serviceCollection.Object.AddCqrs(typeof(AsyncQueryTests).Assembly);
+        }
     }
 
     public class TestAsyncQuery : IQuery
@@ -32,6 +42,24 @@ namespace Cqrs.Simple.Tests
         public async Task<bool> Handle(TestAsyncQuery message)
         {
             return await Task.FromResult(true);
+        }
+    }
+
+    public abstract class TestSession : ISession
+    {
+        public T Run<T>(Func<IDbConnection, T> action)
+        {
+            return Test<T>();
+        }
+
+        protected abstract T Test<T>();
+    }
+
+    public class FullSession : TestSession
+    {
+        protected override T Test<T>()
+        {
+            return default(T);
         }
     }
 }

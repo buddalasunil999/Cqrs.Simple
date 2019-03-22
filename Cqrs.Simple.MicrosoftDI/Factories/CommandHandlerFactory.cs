@@ -1,34 +1,32 @@
-﻿using Castle.MicroKernel;
+﻿using System;
 
-namespace Cqrs.Simple
+namespace Cqrs.Simple.MicrosoftDI.Factories
 {
     public class CommandHandlerFactory : ICommandHandlerFactory
     {
-        private readonly IKernel kernel;
+        private readonly IServiceProvider kernel;
 
-        public CommandHandlerFactory(IKernel kernel)
+        public CommandHandlerFactory(IServiceProvider kernel)
         {
             this.kernel = kernel;
         }
 
         public IHandleCommand<TArguments> Resolve<TArguments>() where TArguments : ICommand
         {
-            return kernel.Resolve<IHandleCommand<TArguments>>();
+            return kernel.GetService<IHandleCommand<TArguments>>();
         }
 
         public IHandleCommand<TArguments, TResult> Resolve<TArguments, TResult>() where TArguments : ICommand
         {
-            return kernel.Resolve<IHandleCommand<TArguments, TResult>>();
+            return kernel.GetService<IHandleCommand<TArguments, TResult>>();
         }
 
         public void Release<TArguments>(IHandleCommand<TArguments> handler) where TArguments : ICommand
         {
-            kernel.ReleaseComponent(handler);
         }
 
         public void Release<TArguments, TResult>(IHandleCommand<TArguments, TResult> handler) where TArguments : ICommand
         {
-            kernel.ReleaseComponent(handler);
         }
     }
 }
