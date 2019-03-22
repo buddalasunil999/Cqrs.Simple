@@ -17,7 +17,7 @@ Install [Cqrs.Simple.MicrosoftDI](https://www.nuget.org/packages/Cqrs.Simple.Mic
 Install-Package Cqrs.Simple.MicrosoftDI
 ```
 
-##Usage
+## Usage
 
 ```csharp
 public IServiceProvider ConfigureServices(IServiceCollection services)
