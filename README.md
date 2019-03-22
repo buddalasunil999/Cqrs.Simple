@@ -1,12 +1,23 @@
 # Cqrs.Simple
-Simple Cqrs using castle
+Simple Cqrs using Depenency Injection providers like Castle and Microsoft DI
 
 [![Build status](https://dev.azure.com/donatekartorg/donatekart/_apis/build/status/Cqrs.Simple-CI)](https://dev.azure.com/donatekartorg/donatekart/_build/latest?definitionId=15)
 
 ### Where can I get it?
 
-First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). Then, install [Cqrs.Simple](https://www.nuget.org/packages/Cqrs.Simple/) from the package manager console:
+Install [Cqrs.Simple](https://www.nuget.org/packages/Cqrs.Simple/) from the package manager console:
 
 ```
-PM> Install-Package Cqrs.Simple
+Install-Package Cqrs.Simple
+```
+Install [Cqrs.Simple.Castle](https://www.nuget.org/packages/Cqrs.Simple.Castle/) from the package manager console:
+
+```
+Install-Package Cqrs.Simple.Castle
+```
+
+Install [Cqrs.Simple.MicrosoftDI](https://www.nuget.org/packages/Cqrs.Simple.MicrosoftDI/) from the package manager console:
+
+```
+Install-Package Cqrs.Simple.MicrosoftDI
 ```
