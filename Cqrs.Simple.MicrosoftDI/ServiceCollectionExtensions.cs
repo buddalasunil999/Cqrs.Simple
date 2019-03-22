@@ -9,11 +9,6 @@ namespace Cqrs.Simple.MicrosoftDI
 {
     public static class ServiceCollectionExtensions
     {
-        public static T GetService<T>(this IServiceProvider provider)
-        {
-           return (T)provider.GetService(typeof(T));
-        }
-
         /// <summary>
         /// Adds the handlers and sessions from root assembly and referenced assemblies starting with same name into service collection
         /// </summary>

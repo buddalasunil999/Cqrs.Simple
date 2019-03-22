@@ -4,16 +4,16 @@ namespace Cqrs.Simple.MicrosoftDI.Factories
 {
     public class QueryHandlerFactory : IQueryHandlerFactory
     {
-        private readonly IServiceProvider kernel;
+        private readonly IServiceProvider serviceProvider;
 
-        public QueryHandlerFactory(IServiceProvider kernel)
+        public QueryHandlerFactory(IServiceProvider serviceProvider)
         {
-            this.kernel = kernel;
+            this.serviceProvider = serviceProvider;
         }
 
         public IHandleQuery<TArguments, TResult> Resolve<TArguments, TResult>() where TArguments : IQuery
         {
-            return (IHandleQuery<TArguments, TResult>)kernel.GetService(
+            return (IHandleQuery<TArguments, TResult>)serviceProvider.GetService(
                 typeof(IHandleQuery<,>).MakeGenericType(typeof(TArguments), typeof(TResult))
             );
         }

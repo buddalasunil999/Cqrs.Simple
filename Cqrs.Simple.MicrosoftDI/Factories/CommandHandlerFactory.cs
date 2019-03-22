@@ -1,24 +1,25 @@
 ﻿using System;
+using Cqrs.Simple.MicrosoftDI.Extensions;
 
 namespace Cqrs.Simple.MicrosoftDI.Factories
 {
     public class CommandHandlerFactory : ICommandHandlerFactory
     {
-        private readonly IServiceProvider kernel;
+        private readonly IServiceProvider serviceProvider;
 
-        public CommandHandlerFactory(IServiceProvider kernel)
+        public CommandHandlerFactory(IServiceProvider serviceProvider)
         {
-            this.kernel = kernel;
+            this.serviceProvider = serviceProvider;
         }
 
         public IHandleCommand<TArguments> Resolve<TArguments>() where TArguments : ICommand
         {
-            return kernel.GetService<IHandleCommand<TArguments>>();
+            return serviceProvider.GetService<IHandleCommand<TArguments>>();
         }
 
         public IHandleCommand<TArguments, TResult> Resolve<TArguments, TResult>() where TArguments : ICommand
         {
-            return kernel.GetService<IHandleCommand<TArguments, TResult>>();
+            return serviceProvider.GetService<IHandleCommand<TArguments, TResult>>();
         }
 
         public void Release<TArguments>(IHandleCommand<TArguments> handler) where TArguments : ICommand
