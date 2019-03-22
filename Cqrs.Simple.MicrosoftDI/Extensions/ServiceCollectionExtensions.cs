@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Cqrs.Simple;
 using Cqrs.Simple.MicrosoftDI.Factories;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Cqrs.Simple.MicrosoftDI
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
