@@ -3,7 +3,6 @@ using System.Data;
 using System.Threading.Tasks;
 using Castle.Windsor;
 using Cqrs.Simple.Castle.Installers;
-using Cqrs.Simple.MicrosoftDI;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Xunit;

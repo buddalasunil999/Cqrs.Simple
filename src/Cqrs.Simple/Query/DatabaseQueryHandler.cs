@@ -24,7 +24,6 @@ namespace Cqrs.Simple
         public static string GetScript(this Type type)
         {
             var name = type.Name
-                .Replace("Command", string.Empty)
                 .Replace("Handler", string.Empty);
 
             string embeddedName = type.Assembly.GetManifestResourceNames().Where(x =>

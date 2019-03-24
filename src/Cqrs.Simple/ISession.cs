@@ -5,6 +5,6 @@ namespace Cqrs.Simple
 {
     public interface ISession
     {
-        T Run<T>(Func<IDbConnection, T> action);
+        T Run<T>(Func<IDbConnection, T> func);
     }
 }
