@@ -1,7 +1,7 @@
 # Cqrs.Simple
 Simple Cqrs using Depenency Injection providers like Castle and Microsoft DI
 
-[![Build status](https://dev.azure.com/donatekartorg/donatekart/_apis/build/status/Cqrs.Simple-CI)](https://dev.azure.com/donatekartorg/donatekart/_build/latest?definitionId=15)
+[![Build status](https://dev.azure.com/donatekartorg/donatekart/_apis/build/status/Cqrs.Simple-CI)](https://dev.azure.com/donatekartorg/donatekart/_build/latest?definitionId=15) [![Join the chat at https://gitter.im/Cqrs-Simple/community](https://badges.gitter.im/Cqrs-Simple/community.svg)](https://gitter.im/Cqrs-Simple/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### Where can I get it?
 
