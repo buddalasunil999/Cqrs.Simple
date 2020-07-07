@@ -49,7 +49,7 @@ namespace Cqrs.Simple.Castle.Installers
             yield return fromAssembly
                 .BasedOn<ISession>()
                 .WithServiceSelf()
-                .LifestyleTransient();
+                .LifestyleScoped();
         }
     }
 }
