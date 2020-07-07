@@ -51,6 +51,11 @@ namespace Cqrs.Simple.Tests
             return Test<T>();
         }
 
+        public T Run<T>(Func<IDbConnection, IDbTransaction, T> func)
+        {
+            return Test<T>();
+        }
+
         protected abstract T Test<T>();
     }
 
