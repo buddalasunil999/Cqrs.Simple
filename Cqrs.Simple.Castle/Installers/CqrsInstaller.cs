@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Castle.MicroKernel.Registration;
@@ -9,15 +10,13 @@ namespace Cqrs.Simple.Castle.Installers
 {
     public class CqrsInstaller : IWindsorInstaller
     {
-        private readonly Assembly[] assemblies;
-
-        public CqrsInstaller(params Assembly[] assemblies)
-        {
-            this.assemblies = assemblies;
-        }
-
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+            var entryAssembly = Assembly.GetEntryAssembly();
+            var assemblies = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .Where(x => x.FullName.StartsWith(entryAssembly.FullName.Split('.')[0]));
+
             foreach (var assembly in assemblies)
             {
                 container.Register(GetRegistrations(Classes.FromAssembly(assembly)).ToArray());
