@@ -10,8 +10,27 @@ namespace Cqrs.Simple.Castle.Installers
 {
     public class CqrsInstaller : IWindsorInstaller
     {
+        private readonly List<string> assemblyMatches;
+
+        public CqrsInstaller(List<string> assemblyMatches = null)
+        {
+            this.assemblyMatches = assemblyMatches;
+        }
+
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+            if (assemblyMatches != null)
+            {
+                var matchingAssemblies = AppDomain.CurrentDomain
+                    .GetAssemblies()
+                    .Where(x => assemblyMatches.Contains(x.FullName.Split('.')[0]));
+
+                foreach (var assembly in matchingAssemblies)
+                {
+                    container.Register(GetRegistrations(Classes.FromAssembly(assembly)).ToArray());
+                }
+            }
+
             var entryAssembly = Assembly.GetEntryAssembly();
             var assemblies = AppDomain.CurrentDomain
                 .GetAssemblies()
