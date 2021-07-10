@@ -10,9 +10,9 @@ namespace Cqrs.Simple.Castle.Installers
 {
     public class CqrsInstaller : IWindsorInstaller
     {
-        private readonly List<string> assemblyMatches;
+        private readonly string[] assemblyMatches;
 
-        public CqrsInstaller(List<string> assemblyMatches = null)
+        public CqrsInstaller(params string[] assemblyMatches)
         {
             this.assemblyMatches = assemblyMatches;
         }
