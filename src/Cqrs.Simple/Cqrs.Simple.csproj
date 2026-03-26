@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Title>Cqrs.Simple</Title>
+    <Description>Simple Cqrs Library</Description>
+    <Configuration></Configuration>
+    <Company>PSGL Tech Limited</Company>
+    <Visibility>false</Visibility>
+    <Guid>83DF633A-9B27-4052-B715-B6202F3116B6</Guid>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0.0</Version>
+    <InformationalVersion>2.0.0.0</InformationalVersion>
+    <Authors>PSGL Tech Limited</Authors>
+    <RepositoryUrl>https://PSGLTech@dev.azure.com/PSGLTech</RepositoryUrl>
+    <PackageProjectUrl>https://PSGLTech@dev.azure.com/PSGLTech</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+  </ItemGroup>
+
+</Project>

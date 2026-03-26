@@ -1,0 +1,19 @@
+resources:
+- repo: self
+queue:
+  name: Hosted
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
+  inputs:
+    command: pack
+    versioningScheme: byEnvVar
+    versionEnvVar: VersionNumber
+
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    nuGetFeedType: external
+    publishFeedCredentials: NugetServer

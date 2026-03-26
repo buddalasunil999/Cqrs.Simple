@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Title>Cqrs.Simple.Castle</Title>
+    <Description>Simple Cqrs Library using Castle DI</Description>
+    <Configuration></Configuration>
+    <Company>PSGL Tech Limited</Company>
+    <Visibility>false</Visibility>
+    <Guid>F3D5E0B8-BEA6-490D-B481-6BA363EFA979</Guid>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0.0</Version>
+    <InformationalVersion>2.0.0.0</InformationalVersion>
+    <Authors>PSGL Tech Limited</Authors>
+    <RepositoryUrl>https://PSGLTech@dev.azure.com/PSGLTech</RepositoryUrl>
+    <PackageProjectUrl>https://PSGLTech@dev.azure.com/PSGLTech</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Castle.Windsor" Version="5.1.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Cqrs.Simple\Cqrs.Simple.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+  </ItemGroup>
+
+</Project>
